@@ -17,7 +17,7 @@ class CategoriResource extends JsonResource
         return [
             'id'=>$this->id,
             'name_categori'=>$this->name_categori,
-            'created_at'=>$this->created_at
+            //'created_at'=>$this->created_at
         ];
     }
 }
