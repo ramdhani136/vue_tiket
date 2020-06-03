@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Categori;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\Categori\Categori;
+use App\Http\Resources\CategoriResource;
 
 class CategoriController extends Controller
 {
@@ -14,7 +16,7 @@ class CategoriController extends Controller
      */
     public function index()
     {
-        //
+        return CategoriResource::collection(Categori::all());
     }
 
     /**
