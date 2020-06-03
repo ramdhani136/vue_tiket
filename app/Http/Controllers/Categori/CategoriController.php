@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Categori\Categori;
 use App\Http\Resources\CategoriResource;
+use Symfony\Component\HttpFoundation\Response;
 
 class CategoriController extends Controller
 {
@@ -16,7 +17,7 @@ class CategoriController extends Controller
      */
     public function index()
     {
-        return CategoriResource::collection(Categori::all());
+        return CategoriResource::collection(Categori::latest()->get());
     }
 
     /**
@@ -37,7 +38,8 @@ class CategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categori = Categori::create($request->all());
+        return response(new CategoriResource($categori), Response::HTTP_CREATED);
     }
 
     /**
