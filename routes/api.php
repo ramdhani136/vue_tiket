@@ -8,3 +8,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('/categori','Categori\CategoriController');
+Route::resource('/tiket','Tiket\TiketController');

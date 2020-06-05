@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Tiket;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\Tiket\Tiket;
+use App\Http\Resources\TiketResource;
+use Symfony\Component\HttpFoundation\Response;
+
 
 class TiketController extends Controller
 {
@@ -14,7 +18,7 @@ class TiketController extends Controller
      */
     public function index()
     {
-        //
+        return TiketResource::collection(Tiket::latest()->get());
     }
 
     /**
@@ -35,7 +39,8 @@ class TiketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Tiket::create($request->all());
+        return response(new TiketResource($data),response::HTTP_CREATED);
     }
 
     /**
@@ -44,9 +49,9 @@ class TiketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Tiket $tiket)
     {
-        //
+        return new TiketResource($tiket);
     }
 
     /**
@@ -55,9 +60,9 @@ class TiketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        
     }
 
     /**
@@ -67,9 +72,10 @@ class TiketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tiket $tiket)
     {
-        //
+        $tiket->update($request->all());
+        return response('update',Response::HTTP_CREATED);
     }
 
     /**
@@ -78,8 +84,9 @@ class TiketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tiket $tiket)
     {
-        //
+        $tiket->delete();
+        return response('Deleted',Response::HTTP_OK);
     }
 }
