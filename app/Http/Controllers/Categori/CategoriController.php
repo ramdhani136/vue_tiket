@@ -48,9 +48,9 @@ class CategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Categori $categori)
     {
-        //
+        return new CategoriResource($categori);
     }
 
     /**
@@ -71,9 +71,10 @@ class CategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request ,Categori $categori)
     {
-        //
+        $categori->update($request->all());
+        return response('update',Response::HTTP_CREATED);
     }
 
     /**
@@ -82,8 +83,9 @@ class CategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Categori $categori)
     {
-        //
+        $categori->delete();
+        return response('deleted',response::HTTP_OK);
     }
 }
