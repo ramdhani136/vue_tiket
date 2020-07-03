@@ -1,6 +1,6 @@
 <template>
     <div id="container">
-           <router-link to="/categori/create" class="btn btn-success margin-home my-3">
+        <router-link to="/categori/create" class="btn btn-success margin-home my-3">
             + Tambah Categori
         </router-link>
         <table class="table table-striped">
@@ -18,7 +18,11 @@
                 <th scope="row">{{index+1}}</th>
                 <td>{{categori.name_categori}}</td>
                 <td>
-                    <button type="button" class="btn btn-primary">Edit</button>
+                    
+                    <router-link :to="{name:'edit_categori',params:{id:categori.id}}" class="btn btn-primary">
+                    Edit
+                    </router-link>
+
                     <button type="button" class="btn btn-danger">Hapus</button>
                 </td>
                 </tr>
