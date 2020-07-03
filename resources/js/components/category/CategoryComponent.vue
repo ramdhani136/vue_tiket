@@ -1,6 +1,9 @@
 <template>
     <div id="container">
         <button type="button" class="btn btn-success my-3">+ Tambah Kategori</button>
+        <div class="input-group">
+            <input type="text" class="form-control">
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
