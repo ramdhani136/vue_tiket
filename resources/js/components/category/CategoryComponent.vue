@@ -1,6 +1,6 @@
 <template>
     <div id="container">
-        <router-link to="/categori/create" class="btn btn-success margin-home my-3">
+        <router-link to="/categori/create" class="btn btn-success margin-home my-3 bord">
             + Tambah Categori
         </router-link>
         <table class="table table-striped">
@@ -23,7 +23,7 @@
                     Edit
                     </router-link>
 
-                    <button type="button" class="btn btn-danger">Hapus</button>
+                    <button type="button" @click="destroy(categori.id)" class="btn btn-danger">Hapus</button>
                 </td>
                 </tr>
             </tbody>
@@ -46,6 +46,13 @@
                 axios("/api/categori")
                 .then(res=>this.categories=res.data.data)
                 .catch(res=>console.log(rror.res.data.data))
+            },
+            destroy(id){
+                let keputusan=confirm('Apakah anda yakin ingin menghapus kategori ini?')
+                if(keputusan==true){
+                    axios.delete(`/api/categori/${id}+`)
+                    .then(res=>this.getCategory())
+                }
             }
         }  
     }

@@ -1992,6 +1992,17 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (res) {
         return console.log(rror.res.data.data);
       });
+    },
+    destroy: function destroy(id) {
+      var _this2 = this;
+
+      var keputusan = confirm('Apakah anda yakin ingin menghapus kategori ini?');
+
+      if (keputusan == true) {
+        axios["delete"]("/api/categori/".concat(id, "+")).then(function (res) {
+          return _this2.getCategory();
+        });
+      }
     }
   }
 });
@@ -37720,7 +37731,7 @@ var render = function() {
       _c(
         "router-link",
         {
-          staticClass: "btn btn-success margin-home my-3",
+          staticClass: "btn btn-success margin-home my-3 bord",
           attrs: { to: "/categori/create" }
         },
         [_vm._v("\n        + Tambah Categori\n    ")]
@@ -37760,7 +37771,12 @@ var render = function() {
                     "button",
                     {
                       staticClass: "btn btn-danger",
-                      attrs: { type: "button" }
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.destroy(categori.id)
+                        }
+                      }
                     },
                     [_vm._v("Hapus")]
                   )
