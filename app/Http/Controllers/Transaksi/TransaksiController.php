@@ -75,6 +75,7 @@ class TransaksiController extends Controller
     public function update(Request $request, Transaksi $transaksi)
     {
         $transaksi->update($request->all());
+        return response('update',Response::HTTP_CREATED);
     }
 
     /**
@@ -83,8 +84,9 @@ class TransaksiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Transaksi $transaksi)
     {
-        //
+        $transaksi->delete();
+        return response('Deleted',Response::HTTP_OK);
     }
 }
