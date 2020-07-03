@@ -20,4 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::view('/','home')->middleware('auth');
-Route::view('/{any}','home')->middleware('auth');;
+Route::view('/{any}','home')->middleware('auth');
+Route::view('/{any}/{any1}','home')->middleware('auth');;

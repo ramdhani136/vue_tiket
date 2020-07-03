@@ -1,9 +1,8 @@
 <template>
     <div id="container">
-        <button type="button" class="btn btn-success my-3">+ Tambah Kategori</button>
-        <div class="input-group">
-            <input type="text" class="form-control">
-        </div>
+           <router-link to="/categori/create" class="btn btn-success margin-home my-3">
+            + Tambah Categori
+        </router-link>
         <table class="table table-striped">
             <thead>
                 <tr>
