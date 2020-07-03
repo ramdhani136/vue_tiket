@@ -54,6 +54,10 @@
                                     <router-link to="/categori" class="nav-link">Categori</router-link>
                                 </li>
 
+                                <li class="nav-item">
+                                    <router-link to="/tiket" class="nav-link">Tiket</router-link>
+                                </li>
+
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
