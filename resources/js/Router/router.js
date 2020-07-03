@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import CategoryComponent from '../components/category/CategoryComponent.vue'
 const routes = [
-    { path: '/foo', component: Foo },
-    { path: '/bar', component: Bar }
+    {name:'categori', path:'/categori', component:CategoryComponent},
   ]
 
 Vue.use(VueRouter)
