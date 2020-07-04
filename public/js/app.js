@@ -2413,6 +2413,14 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("api/tiket").then(function (res) {
         return _this.tiket = res.data.data;
       });
+    },
+    destroy: function destroy(id) {
+      var keputusan = confirm('Apakah anda yakin ingin menghapus Tiket ini?');
+
+      if (keputusan == true) {
+        axios["delete"]("/api/tiket/".concat(id, "+"));
+        this.getTiket();
+      }
     }
   }
 });
@@ -39707,7 +39715,7 @@ var render = function() {
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
-                          return _vm.destroy(_vm.tiket.id)
+                          return _vm.destroy(tk.id)
                         }
                       }
                     },

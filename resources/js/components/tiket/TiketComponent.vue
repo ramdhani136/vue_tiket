@@ -29,7 +29,7 @@
                     Edit
                     </router-link>
 
-                    <button type="button" @click="destroy(tiket.id)" class="btn btn-danger">Hapus</button>
+                    <button type="button" @click="destroy(tk.id)" class="btn btn-danger">Hapus</button>
                 </td>
                 </tr>
             </tbody>
@@ -41,7 +41,7 @@
 export default {
     data(){
         return{
-            tiket:[]
+            tiket:[],
         }
     },
     created(){
@@ -51,6 +51,13 @@ export default {
         getTiket(){
             axios.get("api/tiket")
             .then(res=>this.tiket=res.data.data)
+        },
+        destroy(id){
+            let keputusan=confirm('Apakah anda yakin ingin menghapus Tiket ini?')
+            if(keputusan==true){
+                axios.delete(`/api/tiket/${id}+`)
+                this.getTiket()
+            }
         }
     }
 }
