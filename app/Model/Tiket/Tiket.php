@@ -11,7 +11,13 @@ use App\Model\Transaksi\Transaksi;
 class Tiket extends Model
 {
 
-    protected $guarded=[];
+    protected $fillable=[
+        'id_kategori',
+        'name_tiket',
+        'harga_tiket',
+        'jenis_tiket',
+        'jumlah_tiket'
+    ];
 
     public function categori(){
         return $this->belongsTo(Categori::class,'id_kategori','id');

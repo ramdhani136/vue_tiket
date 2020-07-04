@@ -21,13 +21,13 @@
                 <th scope="row">{{index+1}}</th>
                 <td>{{tk.name_tiket}}</td>
                 <td>{{tk.harga_tiket}}</td>
-                <td>{{tk.nama_categori}}</td>
+                <td>{{tk.name_categori}}</td>
                 <td>{{tk.jumlah_tiket}}</td>
                 <td>
                     
-                    <button class="btn btn-primary">
+                    <router-link :to="{name:'edit_tiket',params:{id:tk.id}}" class="btn btn-primary">
                     Edit
-                    </button>
+                    </router-link>
 
                     <button type="button" @click="destroy(tiket.id)" class="btn btn-danger">Hapus</button>
                 </td>

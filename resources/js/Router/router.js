@@ -7,6 +7,7 @@ import EditCategory from '../components/category/EditCategory.vue'
 
 import TiketComponent from '../components/tiket/TiketComponent.vue'
 import CreateTiket from '../components/tiket/CreateTiket.vue'
+import EditTiket from '../components/tiket/EditTiket.vue'
 
 const routes = [
     {name:'categori', path:'/categori', component:CategoryComponent},
@@ -15,6 +16,7 @@ const routes = [
 
     {name:'tiket', path:'/tiket', component:TiketComponent},
     {name:'CreateTiket', path:'/tiket/create', component:CreateTiket},
+    {name:'edit_tiket', path:'/tiket/edit/:id', component:EditTiket},
   ]
 
 Vue.use(VueRouter)

@@ -20,8 +20,9 @@ class TiketResource extends JsonResource
             'name_tiket'=>$this->name_tiket,
             'harga_tiket'=>$this->harga_tiket,
             'jenis_tiket'=>$this->jenis_tiket,
-            'nama_categori'=> $this->categori->name_categori,
+            'name_categori'=> $this->categori->name_categori,
             'jumlah_tiket'=>$this->jumlah_tiket,
+            'id_kategori'=>$this->categori->id
         ];
     }
 }
