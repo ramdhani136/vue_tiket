@@ -17,9 +17,11 @@ class TransaksiResource extends JsonResource
         return 
         [
             'id'=>$this->id,
-            'tiket'=>$this->tiket->name_tiket,
+            'name_tiket'=>$this->tiket->name_tiket,
             'qty'=>$this->qty,
             'status'=>$this->status,
+            'total'=>$this->qty * $this->tiket->harga_tiket,
+            'harga_tiket'=>$this->tiket->harga_tiket,
         ];
     }
 }

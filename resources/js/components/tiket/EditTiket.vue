@@ -19,7 +19,7 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label text-md-right"><i class="fas fa-address-book">Kategori Tiket</i></label>
                             <div class="col-md-6">
-                                    <select class="form-control" v-model="form.id_kategori">
+                                    <select class="form-control" >
                                         <option v-for="cat in categori" :value="cat.id" :key="cat">
                                             {{cat.name_categori}}
                                         </option>

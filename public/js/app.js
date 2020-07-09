@@ -1974,13 +1974,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getCategory();
   },
   data: function data() {
     return {
-      categories: []
+      categories: [],
+      search: ''
     };
   },
   methods: {
@@ -2421,6 +2423,146 @@ __webpack_require__.r(__webpack_exports__);
         axios["delete"]("/api/tiket/".concat(id, "+"));
         this.getTiket();
       }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/transaksi/TransaksiComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/transaksi/TransaksiComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        id_tiket: null,
+        qty: null
+      },
+      tiket: {},
+      transaksi: {}
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/tiket").then(function (res) {
+      return _this.tiket = res.data.data;
+    });
+  },
+  mounted: function mounted() {
+    this.getTransaksi();
+  },
+  methods: {
+    savetransaksi: function savetransaksi() {
+      var _this2 = this;
+
+      axios.post("/api/transaksi/", this.form).then(function (response) {
+        _this2.form.qty = "", _this2.form.id_tiket = "";
+
+        _this2.getTransaksi();
+      });
+    },
+    getTransaksi: function getTransaksi() {
+      var _this3 = this;
+
+      axios.get("/api/transaksi").then(function (res) {
+        return _this3.transaksi = res.data.data;
+      });
+    },
+    destroy: function destroy(id) {
+      var keputusan = confirm("yakin ingin menghapus tiket ini?");
+
+      if (keputusan == true) {
+        axios["delete"]("/api/transaksi/".concat(id, "+"));
+        this.getTransaksi();
+      }
+    },
+    finish: function finish() {
+      var _this4 = this;
+
+      axios.get("/api/transaksi/update").then(function (response) {
+        _this4.getTransaksi();
+      });
     }
   }
 });
@@ -38724,6 +38866,30 @@ var render = function() {
         [_vm._v("\n        + Tambah Categori\n    ")]
       ),
       _vm._v(" "),
+      _c("div", { staticClass: "form-group float-right mt-2 col-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.search,
+              expression: "search"
+            }
+          ],
+          staticClass: "form-control col-12",
+          attrs: { type: "text", placeholder: "Search" },
+          domProps: { value: _vm.search },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.search = $event.target.value
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
       _c("table", { staticClass: "table table-striped" }, [
         _vm._m(0),
         _vm._v(" "),
@@ -39436,36 +39602,7 @@ var render = function() {
                     _c("div", { staticClass: "col-md-6" }, [
                       _c(
                         "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.id_kategori,
-                              expression: "form.id_kategori"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.form,
-                                "id_kategori",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            }
-                          }
-                        },
+                        { staticClass: "form-control" },
                         _vm._l(_vm.categori, function(cat) {
                           return _c(
                             "option",
@@ -39755,6 +39892,312 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/transaksi/TransaksiComponent.vue?vue&type=template&id=20b2a5e7&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/transaksi/TransaksiComponent.vue?vue&type=template&id=20b2a5e7& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c(
+        "v-form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.savetransaksi($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "row justify-content-center" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-header" }, [
+                  _c("i", { staticClass: "fas fa-money-check-alt" }, [
+                    _vm._v(" TRANSAKSI TIKET ")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h3", [
+                    _c("i", { staticClass: "fab fa-wpforms" }, [
+                      _vm._v(" Form Transaksi ")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("table", { staticClass: "table table-bordered" }, [
+                    _c("tr", [
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticClass: "col-md-12" },
+                          [
+                            _c("label", [_vm._v("Name Tiket")]),
+                            _vm._v(" "),
+                            _c(
+                              "v-flex",
+                              { attrs: { xs12: "", sm12: "", "d-flex": "" } },
+                              [
+                                _c(
+                                  "select",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.id_tiket,
+                                        expression: "form.id_tiket"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    on: {
+                                      change: function($event) {
+                                        var $$selectedVal = Array.prototype.filter
+                                          .call($event.target.options, function(
+                                            o
+                                          ) {
+                                            return o.selected
+                                          })
+                                          .map(function(o) {
+                                            var val =
+                                              "_value" in o ? o._value : o.value
+                                            return val
+                                          })
+                                        _vm.$set(
+                                          _vm.form,
+                                          "id_tiket",
+                                          $event.target.multiple
+                                            ? $$selectedVal
+                                            : $$selectedVal[0]
+                                        )
+                                      }
+                                    }
+                                  },
+                                  _vm._l(_vm.tiket, function(tikets) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: tikets,
+                                        domProps: { value: tikets.id }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                                " +
+                                            _vm._s(tikets.name_tiket) +
+                                            "\n                                            "
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticClass: "col-md-12" },
+                          [
+                            _c("label", [_vm._v("Qty")]),
+                            _vm._v(" "),
+                            _c(
+                              "v-flex",
+                              { attrs: { xs12: "", sm12: "", "d-flex": "" } },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.form.qty,
+                                      expression: "form.qty"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: { type: "number" },
+                                  domProps: { value: _vm.form.qty },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.form,
+                                        "qty",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                })
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c(
+                        "td",
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: {
+                                color: "primary",
+                                type: "submit",
+                                dark: ""
+                              }
+                            },
+                            [_vm._v(" Save\n                                ")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { color: "primary", dark: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.finish()
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                " Finish\n                                "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { color: "indigo", dark: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.print()
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "Print\n                                    "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-header" }, [
+                    _c("i", { staticClass: "fab fa-wpforms" }, [
+                      _vm._v(" Detail Transaksi ")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "table",
+                    { staticClass: "table table-bordered" },
+                    [
+                      _c("th", [
+                        _c("i", { staticClass: "fas fa-file-signature" }, [
+                          _vm._v("  Nama Tiket ")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _c("i", { staticClass: "fab fa-wolf-pack-battalion" }, [
+                          _vm._v(" Qty ")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _c("i", { staticClass: "fas fa-hand-holding-usd" }, [
+                          _vm._v(" Harga Tiket ")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _c("i", { staticClass: "fas fa-dollar-sign" }, [
+                          _vm._v(" Subtotal  ")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _c("i", { staticClass: "fas fa-ban" }, [
+                          _vm._v(" Cancel ")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.transaksi, function(trx) {
+                        return _c("tr", { key: trx.id }, [
+                          _c("td", [_vm._v(_vm._s(trx.name_tiket))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(trx.qty))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(trx.harga_tiket))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(trx.total))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.destroy(trx.id)
+                                  }
+                                }
+                              },
+                              [_vm._v("Hapus")]
+                            )
+                          ])
+                        ])
+                      })
+                    ],
+                    2
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -98670,6 +99113,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_tiket_TiketComponent_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/tiket/TiketComponent.vue */ "./resources/js/components/tiket/TiketComponent.vue");
 /* harmony import */ var _components_tiket_CreateTiket_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/tiket/CreateTiket.vue */ "./resources/js/components/tiket/CreateTiket.vue");
 /* harmony import */ var _components_tiket_EditTiket_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/tiket/EditTiket.vue */ "./resources/js/components/tiket/EditTiket.vue");
+/* harmony import */ var _components_transaksi_TransaksiComponent_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/transaksi/TransaksiComponent.vue */ "./resources/js/components/transaksi/TransaksiComponent.vue");
+
 
 
 
@@ -98702,6 +99147,10 @@ var routes = [{
   name: 'edit_tiket',
   path: '/tiket/edit/:id',
   component: _components_tiket_EditTiket_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+}, {
+  name: 'transaksi',
+  path: '/transaksi',
+  component: _components_transaksi_TransaksiComponent_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
 }];
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -99322,6 +99771,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TiketComponent_vue_vue_type_template_id_7ea8bba6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TiketComponent_vue_vue_type_template_id_7ea8bba6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/transaksi/TransaksiComponent.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/transaksi/TransaksiComponent.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TransaksiComponent_vue_vue_type_template_id_20b2a5e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TransaksiComponent.vue?vue&type=template&id=20b2a5e7& */ "./resources/js/components/transaksi/TransaksiComponent.vue?vue&type=template&id=20b2a5e7&");
+/* harmony import */ var _TransaksiComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TransaksiComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/transaksi/TransaksiComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TransaksiComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TransaksiComponent_vue_vue_type_template_id_20b2a5e7___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TransaksiComponent_vue_vue_type_template_id_20b2a5e7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/transaksi/TransaksiComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/transaksi/TransaksiComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/transaksi/TransaksiComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TransaksiComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./TransaksiComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/transaksi/TransaksiComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TransaksiComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/transaksi/TransaksiComponent.vue?vue&type=template&id=20b2a5e7&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/transaksi/TransaksiComponent.vue?vue&type=template&id=20b2a5e7& ***!
+  \*************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TransaksiComponent_vue_vue_type_template_id_20b2a5e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./TransaksiComponent.vue?vue&type=template&id=20b2a5e7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/transaksi/TransaksiComponent.vue?vue&type=template&id=20b2a5e7&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TransaksiComponent_vue_vue_type_template_id_20b2a5e7___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TransaksiComponent_vue_vue_type_template_id_20b2a5e7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

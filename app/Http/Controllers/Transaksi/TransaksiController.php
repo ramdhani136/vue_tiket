@@ -72,10 +72,9 @@ class TransaksiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Transaksi $transaksi)
+    public function update()
     {
-        $transaksi->update($request->all());
-        return response('update',Response::HTTP_CREATED);
+        return "tes";
     }
 
     /**

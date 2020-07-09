@@ -58,6 +58,19 @@
                                     <router-link to="/tiket" class="nav-link">Tiket</router-link>
                                 </li>
 
+                                <li class="nav-item dropdown">
+                                <router-link to="/transaksi" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Transaksi <span class="caret"></span>
+                                </router-link>
+
+                                <div class="dropdown-menu flex-center dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <router-link to="/transaksi" class="dropdown-item" >Semua Transaksi</router-link>
+                                    <router-link to="/transaksi" class="dropdown-item" >Tambah Transaksi</router-link>
+                                    <router-link to="/transaksi" class="dropdown-item" >Draft</router-link>
+                                </div>
+                            </li>
+                                
+
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

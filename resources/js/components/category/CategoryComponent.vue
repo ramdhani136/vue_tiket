@@ -3,6 +3,9 @@
         <router-link to="/categori/create" class="btn btn-success margin-home my-3 bord">
             + Tambah Categori
         </router-link>
+        <div class="form-group float-right mt-2 col-3">
+            <input type="text" class="form-control col-12" v-model="search" placeholder="Search">
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -13,8 +16,6 @@
             </thead>
             <tbody>
                 <tr v-for="(categori, index) in categories" :key="categori">
-                    
-                    
                 <th scope="row">{{index+1}}</th>
                 <td>{{categori.name_categori}}</td>
                 <td>
@@ -38,7 +39,8 @@
         },
         data(){
             return{
-                categories:[]
+                categories:[],
+                search:''
             }
         },
         methods:{
